@@ -1,4 +1,4 @@
 From now, build our blog together!
 Let`s start to learn and practice.
-1.git
+1. git
 
