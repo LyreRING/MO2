@@ -12,29 +12,36 @@
 * git add将repository中的文件添加到stage（暂存区）
 * git commit（-m "修改信息"）将stage中的文件提交到当前分支
 * git status查看当前文件状态
-#### 版本修改：
+#### 修改恢复：
 * HEAD指针指向当前版本，HEAD^(^^^/~100)表示前面的版本
-* git log可查看版本提交的历史，git reflog可以查看命令历史（帮助查找需跳转的版本）
-* git reset -hard (版本号/指针）回退到某一版本
-* git checkout -- (文件名）用版本库里的版本替换工作区的版本
+* git log可查看版本提交的历史（可回到过去），git reflog可以查看命令历史（可重返未来）
+* git reset --hard (版本号/指针）回退到某一版本，可撤销提交
+* git reset head <file> 丢弃暂存区处理，可撤销添加
+* git checkout -- (文件名）用版本库里的版本替换工作区的版本，可撤销修改
+* git diff head -- file_name 比较与版本库里文件的差异
 * git rm删除文件
 #### 远程仓库：
 * ssh-keygen -t rsa -C "用户名/邮箱" 创建SSH key后将id_rsa.pub添加至GitHub（为了确保提交来源）
 * 在GitHub创建远程仓库
-* git remote add “仓库名” git@github.com:仓库地址 关联远程仓库
-* git push (-u) 仓库名 推送分支 可将本地库内容全部推送
-* git clone git@github.com:仓库地址 可以直接克隆一个本地库
+* git remote add “仓库名origin” git@github.com（server）:仓库地址（xxx/xxx.git) 关联远程仓库
+* git remote -v 查看远程库信息
+* git remote rm origin 删除（解绑）仓库关系
+* git push (-u) 仓库名 推送分支 ,可将本地库内容全部推送
+* git clone git@github.com:仓库地址(https://...) 可以直接克隆一个本地库
+* git checkout -b (分支） origin/（分支） 在本地创建远程分支的对应分支（因为clone默认只创建master对应关系）
 * git tag (name) (id) 查看（打）标签
 #### 分支管理；
 * git branch (name) 查看（创建）分支
-* git switch -c (name) 创建+切换分支
-* git switch name 切换分支
-* git merge (name)合并某分支
-* git branch -d (name)删除分支
-* git分支可以使团队使用不同分支工作，完成后再推送到主分支
+* git switch -c (name) / git checkout -b（name） 创建+切换分支
+* git switch（checkout) name 切换分支
+* git merge (name)合并某分支到当前分支
+* git branch -d (name)删除分支（若删除commit过的，加-D）
+* git log (--graph)查看分支合并情况，git分支可以使团队使用不同分支工作，完成后再推送到主分支
 * 上面的条件是git merge --no-ff -m "信息" （name）才可以看出分支信息
 * git stash可以将目前的工作储存 git stash pop可恢复
-* git pull可解决因远程分支比本地更新的冲突
+* 可以多次stash，用git stash list查看，git stash apply （stash@{0}）恢复指定现场
+* git cherry-pick <commit> 将指定修改复制到当前分支
+* git pull可解决因远程分支比本地更新的冲突,相当于fetch+merge
 * 若提示no tracking informaition则需用git branch --set-upstream-to <branchname> origin/<branchname>创建关系
 * git rebase可将提交历史整体成直线
 #### 其他：
@@ -42,6 +49,7 @@
 * Git可以在.git中创建.gitignore文件忽略某些文件使其不被提交
 * git config (-- global) ...可以配置别名等自定义git
 * linux可以自行搭建git服务器
+* 在GitHub上，可以任意Fork开源仓库，自己拥有Fork后的仓库的读写权限，可以推送pull request给官方仓库来贡献代码。
 
 
 
