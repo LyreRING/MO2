@@ -24,8 +24,8 @@
 #### 问题处理：
 * Q：npm install中出现了大量warning与error？
 * A：Typescript为JS超集，ESLint可通过配置解析器，规范TS代码。ESlint很严苛，各种细节都报错，一般不影响情况下可忽略。
-* Q：Localhost可以访问，但DevServer无法正常加载？
-* A：网站设计重视安全，DevServer（开发服务器）必须对cookie进行重写才能正常访问网页。
+* Q：Localhost可以访问，但用network的ip地址无法正常加载？
+* A：网站设计重视安全，DevServer（开发服务器）必须对cookie进行重写才能正常访问网页。而因ip会变，所以DevServer只会重写localhost的ip。
 * Q：为什么再localhost上更改会同步至原网站？
 * A: 通过反向代理对localhost的请求被DevServer转发给了原网站（motwo.cn）。
 #### 代理：
