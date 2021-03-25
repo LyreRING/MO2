@@ -1,10 +1,10 @@
-## 学习时间：
+## 学习时间
 * 2021/3/11
 ## 学习内容
 * Git
-## 学习计划：
+## 学习计划
 * 复习git的基本操作，理解git
-## 学习总结：
+## 学习总结
 
 #### 创建版本库：
 * mkdir一个新目录 将其作为repository cd后进行操作
@@ -30,7 +30,7 @@
 * git clone git@github.com:仓库地址(https://...) 可以直接克隆一个本地库
 * git checkout -b (分支） origin/（分支） 在本地创建远程分支的对应分支（因为clone默认只创建master对应关系）
 * git tag (name) (id) 查看（打）标签
-#### 分支管理；
+#### 分支管理：
 * git branch (name) 查看（创建）分支
 * git switch -c (name) / git checkout -b（name） 创建+切换分支
 * git switch（checkout) name 切换分支
